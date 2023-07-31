@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".MainApp"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher_logo_foreground"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_logo_foreground"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.KeyBoardTheme"
+        tools:targetApi="31">
+        <activity
+            android:name=".SpalshActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".gt.keybord.KeyBoardActivity"
+            android:exported="true">
+        </activity>
+        <activity android:name=".gt.keybord.ThemesListActivity" />
+        <activity android:name=".gt.keybord.Crope" />
+        <activity android:name=".gt.keybord.ThemesBackgroundActivity" />
+        <activity android:name=".gt.keybord.CustomeThemesActivity" />
+
+        <service
+            android:name=".softkeyboard.SoftKeyboard"
+            android:exported="false"
+            android:permission="android.permission.BIND_INPUT_METHOD">
+            <intent-filter>
+                <action android:name="android.view.InputMethod" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.view.im"
+                android:resource="@xml/method" />
+        </service>
+
+        <activity
+            android:name=".softkeyboard.ImePreferences"
+            android:exported="false"
+            android:label="@string/settings_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".inapp.PurchaseInAppActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>
