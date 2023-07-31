@@ -12,6 +12,8 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.Toolbar;
+
 import com.example.keyboardtheme.Preference;
 import com.example.keyboardtheme.R;
 import com.example.keyboardtheme.gt.module.constants.AppConstants;
@@ -39,6 +41,12 @@ public class ThemesKeyBackgroundActivity extends Activity implements OnItemClick
         preference = Preference.buildInstance(this);
         textView = findViewById(R.id.coin);
         initUI();
+        ((Toolbar) findViewById(R.id.toolbar)).setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
 	@Override
