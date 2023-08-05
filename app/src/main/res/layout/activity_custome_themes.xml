@@ -1,160 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	android:orientation="vertical"
-	android:weightSum="10"
-	android:background="@drawable/app_background">
-	<androidx.appcompat.widget.Toolbar
-		android:id="@+id/toolbar"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		app:title="Custom Keyboard"
-		app:navigationIcon="@drawable/arrow_left"
-		app:titleTextColor="@color/white">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_background"
+    android:orientation="vertical"
+    android:weightSum="10">
 
-	</androidx.appcompat.widget.Toolbar>
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigationIcon="@drawable/arrow_left"
+        app:title="Custom Keyboard"
+        app:titleTextColor="@color/white">
 
-  
-   <LinearLayout 
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_weight="1"
+        app:cardCornerRadius="24dp">
+
+        <LinearLayout
             android:id="@+id/l_lay_customethemes_background"
             android:layout_width="match_parent"
-        	android:layout_height="0dp"
-        	android:layout_weight="2"
-        	android:gravity="center_vertical"
-        	android:paddingLeft="10dp"
-        	android:background="@drawable/enablekeyboard">
-            
-          	<ImageView 
-            	android:layout_width="60dp"
-            	android:layout_height="60dp"
-            	android:adjustViewBounds="true"
-            	android:layout_marginRight="10dp"
-            	android:focusable="false"
-            	android:src="@drawable/enablekeyboard_img"/>
-        
-        	<TextView 
-            	android:layout_width="wrap_content"
-            	android:layout_height="wrap_content"
-            	android:gravity="center"
-            	android:textColor="@android:color/white"
-            	android:textSize="20sp"
-            	android:focusable="false"
-            	android:text="Background"/>
-         </LinearLayout>
-         
-     <LinearLayout 
-         	 android:id="@+id/l_lay_customethemes_keybackground"
-             android:layout_width="match_parent"
-        	 android:layout_height="0dp"
-        	 android:layout_weight="2"
-         	 android:gravity="center_vertical"
-         	 android:paddingLeft="10dp"
-         	 android:visibility="gone"
-        	 android:background="@drawable/setinputmethod">
-            
-          <ImageView 
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:adjustViewBounds="true"
-            android:layout_marginRight="10dp"
-            android:focusable="false"
-            android:src="@drawable/setthemes_img"/>
-        
-        <TextView 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:focusable="false"
-            android:text="Key background"/>
-         </LinearLayout>
+            android:layout_height="match_parent"
+            android:background="#1C56AE"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp">
 
-     
-      <LinearLayout 
-             android:id="@+id/l_lay_customethemes_gallerybackground"
-            android:layout_width="match_parent"
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginRight="10dp"
+                android:adjustViewBounds="true"
+                android:focusable="false"
+                android:src="@drawable/enablekeyboard_img" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:gravity="center"
+                android:text="Background"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/l_lay_customethemes_keybackground"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
+        android:background="@drawable/setinputmethod"
         android:gravity="center_vertical"
         android:paddingLeft="10dp"
-        android:background="@drawable/setthemes">
-            
-          <ImageView 
+        android:visibility="gone">
+
+        <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:adjustViewBounds="true"
             android:layout_marginRight="10dp"
+            android:adjustViewBounds="true"
             android:focusable="false"
-            android:src="@drawable/setthemicon"/>
-        
-        <TextView 
+            android:src="@drawable/setthemes_img" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
             android:focusable="false"
-            android:text="Set Background Gallery"/>
-         </LinearLayout>
-         
-       <LinearLayout 
-              android:id="@+id/l_lay_customethemes_fontcolor"
-            android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
+            android:gravity="center"
+            android:text="Key background"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_weight="1"
+        app:cardCornerRadius="24dp">
+
+    <LinearLayout
+        android:id="@+id/l_lay_customethemes_gallerybackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0F0785"
         android:gravity="center_vertical"
-        android:paddingLeft="10dp"
+        android:paddingLeft="20dp">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="10dp"
+            android:adjustViewBounds="true"
+            android:focusable="false"
+            android:src="@drawable/setthemicon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:gravity="center"
+            android:text="Set Background Gallery"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_weight="1"
         android:visibility="gone"
-        android:background="@drawable/setthemesbackground">
-            
-          <ImageView 
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:adjustViewBounds="true"
-            android:layout_marginRight="10dp"
-            android:focusable="false"
-            android:src="@drawable/setthemesbackground_img"/>
-        
-        <TextView 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:focusable="false"
-            android:text="Font Color"/>
-         </LinearLayout>
-         
-        <LinearLayout 
-             android:id="@+id/l_lay_customethemes_set"
-            android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
+        app:cardCornerRadius="24dp">
+    <LinearLayout
+        android:id="@+id/l_lay_customethemes_fontcolor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/setthemesbackground"
         android:gravity="center_vertical"
         android:paddingLeft="10dp"
-        android:background="@drawable/setthemesbackground">
-            
-          <ImageView 
+        android:visibility="gone">
+
+        <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:adjustViewBounds="true"
             android:layout_marginRight="10dp"
+            android:adjustViewBounds="true"
             android:focusable="false"
-            android:src="@drawable/setthemicon"/>
-        
-        <TextView 
+            android:src="@drawable/setthemesbackground_img" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
             android:focusable="false"
-            android:text="SetThemes"/>
-         </LinearLayout>
+            android:gravity="center"
+            android:text="Font Color"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_weight="1"
+        app:cardCornerRadius="24dp">
+    <LinearLayout
+        android:id="@+id/l_lay_customethemes_set"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#930DDC"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp">
 
-      
-  
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="10dp"
+            android:adjustViewBounds="true"
+            android:focusable="false"
+            android:src="@drawable/setthemicon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:gravity="center"
+            android:text="SetThemes"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
 </LinearLayout>

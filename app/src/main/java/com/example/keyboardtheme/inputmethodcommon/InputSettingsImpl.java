@@ -14,7 +14,7 @@ import android.view.inputmethod.InputMethodSubtype;
 
 import java.util.List;
 
-/* package private */ class InputMethodSettingsImpl implements InputMethodSettingsInterface {
+/* package private */ class InputSettingsImpl implements InputSettingsInterface {
     private Preference mSubtypeEnablerPreference;
     private int mInputMethodSettingsCategoryTitleRes;
     private CharSequence mInputMethodSettingsCategoryTitle;

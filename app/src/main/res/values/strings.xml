@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KeyBoardTheme</string>
+    <string name="app_name">KeyBoard Theme</string>
     <string name="ime_name" translatable="false">Android Keyboard Themes</string>
 
     <!-- Symbols that are commonly considered word separators in this language -->

@@ -7,9 +7,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.inputmethodservice.InputMethodService;
-import android.inputmethodservice.Keyboard;
-import android.inputmethodservice.KeyboardView;
-import android.os.Environment;
 import android.os.IBinder;
 import android.text.InputType;
 import android.text.method.MetaKeyKeyListener;
@@ -24,8 +21,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.view.inputmethod.InputMethodSubtype;
 
 import com.example.keyboardtheme.R;
-import com.example.keyboardtheme.gt.module.base.Session;
-import com.example.keyboardtheme.gt.module.constants.ApplicationPrefs;
+import com.example.keyboardtheme.ahha.module1122.base.Session;
+import com.example.keyboardtheme.ahha.module1122.constants.ApplicationPrefs;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -33,14 +30,14 @@ import java.util.List;
 
 
 public class SoftKeyboard extends InputMethodService
-        implements KeyboardView.OnKeyboardActionListener {
+        implements android.inputmethodservice.KeyboardView.OnKeyboardActionListener {
     static final boolean DEBUG = false;
 
     static final boolean PROCESS_HARD_KEYS = true;
 
     private InputMethodManager mInputMethodManager;
 
-    private LatinKeyboardView mInputView;
+    private KeyboardView mInputView;
     private CandidateView mCandidateView;
     private CompletionInfo[] mCompletions;
 
@@ -52,11 +49,11 @@ public class SoftKeyboard extends InputMethodService
     private long mLastShiftTime;
     private long mMetaState;
 
-    private LatinKeyboard mSymbolsKeyboard;
-    private LatinKeyboard mSymbolsShiftedKeyboard;
-    private LatinKeyboard mQwertyKeyboard;
+    private Keyboard mSymbolsKeyboard;
+    private Keyboard mSymbolsShiftedKeyboard;
+    private Keyboard mQwertyKeyboard;
 
-    private LatinKeyboard mCurKeyboard;
+    private Keyboard mCurKeyboard;
 
     private String mWordSeparators;
 
@@ -89,9 +86,9 @@ public class SoftKeyboard extends InputMethodService
             if (displayWidth == mLastDisplayWidth) return;
             mLastDisplayWidth = displayWidth;
         }
-        mQwertyKeyboard = new LatinKeyboard(this, R.xml.qwerty);
-        mSymbolsKeyboard = new LatinKeyboard(this, R.xml.symbols);
-        mSymbolsShiftedKeyboard = new LatinKeyboard(this, R.xml.symbols_shift);
+        mQwertyKeyboard = new Keyboard(this, R.xml.qwerty);
+        mSymbolsKeyboard = new Keyboard(this, R.xml.symbols);
+        mSymbolsShiftedKeyboard = new Keyboard(this, R.xml.symbols_shift);
     }
 
     /**
@@ -111,97 +108,97 @@ public class SoftKeyboard extends InputMethodService
 
         switch (applicationPrefs.getThemesId()) {
             case 1:
-                mInputView = (LatinKeyboardView) getLayoutInflater().inflate(R.layout.input_themes1, null);
+                mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input_themes1, null);
 
                 break;
 
             case 2:
-                mInputView = (LatinKeyboardView) getLayoutInflater().inflate(R.layout.input_themes2, null);
+                mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input_themes2, null);
                 break;
 
             case 3:
-                mInputView = (LatinKeyboardView) getLayoutInflater().inflate(R.layout.input_themes3, null);
+                mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input_themes3, null);
                 break;
 
             case 4:
-                mInputView = (LatinKeyboardView) getLayoutInflater().inflate(R.layout.input_themes4, null);
+                mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input_themes4, null);
                 break;
 
             case 5:
-                mInputView = (LatinKeyboardView) getLayoutInflater().inflate(R.layout.input_themes5, null);
+                mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input_themes5, null);
                 break;
 
             case 6:
-                mInputView = (LatinKeyboardView) getLayoutInflater().inflate(R.layout.input_themes6, null);
+                mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input_themes6, null);
                 break;
 
             case 7:
-                mInputView = (LatinKeyboardView) getLayoutInflater().inflate(R.layout.input_themes7, null);
+                mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input_themes7, null);
                 break;
 
             case 8:
-                mInputView = (LatinKeyboardView) getLayoutInflater().inflate(R.layout.input_themes8, null);
+                mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input_themes8, null);
                 break;
 
             case 9:
-                mInputView = (LatinKeyboardView) getLayoutInflater().inflate(R.layout.input_themes9, null);
+                mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input_themes9, null);
                 break;
 
             case 10:
-                mInputView = (LatinKeyboardView) getLayoutInflater().inflate(R.layout.input_themes10, null);
+                mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input_themes10, null);
                 break;
 
             case 11:
-                mInputView = (LatinKeyboardView) getLayoutInflater().inflate(R.layout.input_themes11, null);
+                mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input_themes11, null);
                 break;
 
             case 12:
-                mInputView = (LatinKeyboardView) getLayoutInflater().inflate(R.layout.input_themes12, null);
+                mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input_themes12, null);
                 break;
 
             case 13:
-                mInputView = (LatinKeyboardView) getLayoutInflater().inflate(R.layout.input_themes13, null);
+                mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input_themes13, null);
                 break;
 
             case 14:
-                mInputView = (LatinKeyboardView) getLayoutInflater().inflate(R.layout.input_themes14, null);
+                mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input_themes14, null);
                 break;
 
             case 15:
-                mInputView = (LatinKeyboardView) getLayoutInflater().inflate(R.layout.input_themes15, null);
+                mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input_themes15, null);
                 break;
 
             case 16:
-                mInputView = (LatinKeyboardView) getLayoutInflater().inflate(R.layout.input_themes16, null);
+                mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input_themes16, null);
                 break;
 
             case 17:
-                mInputView = (LatinKeyboardView) getLayoutInflater().inflate(R.layout.input_themes17, null);
+                mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input_themes17, null);
                 break;
 
             case 18:
-                mInputView = (LatinKeyboardView) getLayoutInflater().inflate(R.layout.input_themes18, null);
+                mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input_themes18, null);
                 break;
 
             case 19:
-                mInputView = (LatinKeyboardView) getLayoutInflater().inflate(R.layout.input_themes19, null);
+                mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input_themes19, null);
                 break;
 
             case 20:
-                mInputView = (LatinKeyboardView) getLayoutInflater().inflate(R.layout.input_themes20, null);
+                mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input_themes20, null);
                 break;
 
             case 21:
-                mInputView = (LatinKeyboardView) getLayoutInflater().inflate(R.layout.input_themes21, null);
+                mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input_themes21, null);
                 break;
 
             case 22:
-                mInputView = (LatinKeyboardView) getLayoutInflater().inflate(R.layout.input_themes22, null);
+                mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input_themes22, null);
 
                 break;
 
             case 1000:
-                mInputView = (LatinKeyboardView) getLayoutInflater().inflate(R.layout.input_theme_custom, null);
+                mInputView = (KeyboardView) getLayoutInflater().inflate(R.layout.input_theme_custom, null);
                 File file = new File(getCacheDir()+"/" + "keyboardback.jpg");
                 Drawable d = new BitmapDrawable(getResources(), file.getAbsolutePath());
                 mInputView.findViewById(R.id.keyboard).setBackground(d);
@@ -245,7 +242,7 @@ public class SoftKeyboard extends InputMethodService
 
 
     @SuppressLint("NewApi")
-    private void setLatinKeyboard(LatinKeyboard nextKeyboard) {
+    private void setLatinKeyboard(Keyboard nextKeyboard) {
         /* final boolean shouldSupportLanguageSwitchKey = mInputMethodManager.shouldOfferSwitchingToNextInputMethod(getToken());*/
         /*use this method insted of above method because that not support bellow 19 api*/
         final boolean shouldSupportLanguageSwitchKey = mInputMethodManager.switchToNextInputMethod(getToken(), true);
@@ -509,7 +506,7 @@ public class SoftKeyboard extends InputMethodService
                 // composing text for the user, we want to modify that instead
                 // of let the application to the delete itself.
                 if (mComposing.length() > 0) {
-                    onKey(Keyboard.KEYCODE_DELETE, null);
+                    onKey(android.inputmethodservice.Keyboard.KEYCODE_DELETE, null);
                     return true;
                 }
                 break;
@@ -648,21 +645,21 @@ public class SoftKeyboard extends InputMethodService
             }
             sendKey(primaryCode);
             updateShiftKeyState(getCurrentInputEditorInfo());
-        } else if (primaryCode == Keyboard.KEYCODE_DELETE) {
+        } else if (primaryCode == android.inputmethodservice.Keyboard.KEYCODE_DELETE) {
             handleBackspace();
-        } else if (primaryCode == Keyboard.KEYCODE_SHIFT) {
+        } else if (primaryCode == android.inputmethodservice.Keyboard.KEYCODE_SHIFT) {
             handleShift();
-        } else if (primaryCode == Keyboard.KEYCODE_CANCEL) {
+        } else if (primaryCode == android.inputmethodservice.Keyboard.KEYCODE_CANCEL) {
             handleClose();
             return;
-        } else if (primaryCode == LatinKeyboardView.KEYCODE_LANGUAGE_SWITCH) {
+        } else if (primaryCode == KeyboardView.KEYCODE_LANGUAGE_SWITCH) {
             handleLanguageSwitch();
             return;
-        } else if (primaryCode == LatinKeyboardView.KEYCODE_OPTIONS) {
+        } else if (primaryCode == KeyboardView.KEYCODE_OPTIONS) {
             // Show a menu or somethin'
-        } else if (primaryCode == Keyboard.KEYCODE_MODE_CHANGE
+        } else if (primaryCode == android.inputmethodservice.Keyboard.KEYCODE_MODE_CHANGE
                 && mInputView != null) {
-            Keyboard current = mInputView.getKeyboard();
+            android.inputmethodservice.Keyboard current = mInputView.getKeyboard();
             if (current == mSymbolsKeyboard || current == mSymbolsShiftedKeyboard) {
                 setLatinKeyboard(mQwertyKeyboard);
             } else {
@@ -736,7 +733,7 @@ public class SoftKeyboard extends InputMethodService
             return;
         }
 
-        Keyboard currentKeyboard = mInputView.getKeyboard();
+        android.inputmethodservice.Keyboard currentKeyboard = mInputView.getKeyboard();
         if (mQwertyKeyboard == currentKeyboard) {
             // Alphabet keyboard
             checkToggleCapsLock();

@@ -6,7 +6,7 @@ import android.graphics.drawable.Drawable;
  * InputMethodSettingsInterface is the interface for adding IME related preferences to
  * PreferenceActivity or PreferenceFragment.
  */
-public interface InputMethodSettingsInterface {
+public interface InputSettingsInterface {
     /**
      * Sets the title for the input method settings category with a resource ID.
      * @param resId The resource ID of the title.

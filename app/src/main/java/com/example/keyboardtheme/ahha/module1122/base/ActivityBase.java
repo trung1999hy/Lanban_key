@@ -1,4 +1,4 @@
-package com.example.keyboardtheme.gt.module.base;
+package com.example.keyboardtheme.ahha.module1122.base;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.keyboardtheme.gt.module.constants.ApplicationPrefs;
+import com.example.keyboardtheme.ahha.module1122.constants.ApplicationPrefs;
 
 import java.io.File;
 import java.io.FileInputStream;

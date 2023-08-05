@@ -1,4 +1,4 @@
-package com.example.keyboardtheme.gt.module.constants;
+package com.example.keyboardtheme.ahha.module1122.constants;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -23,7 +23,7 @@ public class ApplicationPrefs {
     }
     
     private static final String THEMES_ID = "themesid";
-    private static final String BITMAP = "bitmap";
+    private static final String BITMAP = "bintmap";
   
     /*Addition level */
     public void setThemesId(int addLevel) {

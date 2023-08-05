@@ -1,4 +1,4 @@
-package com.example.keyboardtheme.gt.keybord;
+package com.example.keyboardtheme.ahha.keybroad;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -12,23 +12,22 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.widget.Toolbar;
-
 import com.example.keyboardtheme.Preference;
 import com.example.keyboardtheme.R;
-import com.example.keyboardtheme.gt.module.constants.AppConstants;
-import com.example.keyboardtheme.gt.module.constants.ApplicationPrefs;
+import com.example.keyboardtheme.ahha.module1122.constants.AppConstants;
+import com.example.keyboardtheme.ahha.module1122.constants.ApplicationPrefs;
 import com.example.keyboardtheme.inapp.PurchaseInAppActivity;
-import com.example.keyboardtheme.softkeyboard.adapter.ThemesKeyBackgroundAdapter;
+import com.example.keyboardtheme.softkeyboard.adapter.ThemesKeyAdapter;
+import com.google.android.material.appbar.MaterialToolbar;
 
 import java.util.Set;
 
 
-public class ThemesKeyBackgroundActivity extends Activity implements OnItemClickListener {
+public class ThemesKeyActivity extends Activity implements OnItemClickListener {
 
     ApplicationPrefs applicationPrefs;
     private GridView listView_themes_list;
-    private ThemesKeyBackgroundAdapter listAdapter;
+    private ThemesKeyAdapter listAdapter;
     private Preference preference;
     private TextView textView;
 
@@ -41,7 +40,7 @@ public class ThemesKeyBackgroundActivity extends Activity implements OnItemClick
         preference = Preference.buildInstance(this);
         textView = findViewById(R.id.coin);
         initUI();
-        ((Toolbar) findViewById(R.id.toolbar)).setNavigationOnClickListener(new View.OnClickListener() {
+        ((MaterialToolbar) findViewById(R.id.toolbar)).setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
@@ -57,7 +56,7 @@ public class ThemesKeyBackgroundActivity extends Activity implements OnItemClick
     private void initUI() {
         // TODO Auto-generated method stub
 
-        listAdapter = new ThemesKeyBackgroundAdapter(getApplicationContext());
+        listAdapter = new ThemesKeyAdapter(getApplicationContext());
         listView_themes_list = (GridView) findViewById(R.id.listView_themes_list);
         listView_themes_list.setAdapter(listAdapter);
         listView_themes_list.setOnItemClickListener(this);
@@ -68,13 +67,13 @@ public class ThemesKeyBackgroundActivity extends Activity implements OnItemClick
                             long id) {
         // TODO Auto-generated method stub
 
-        if (AppConstants.getTheme(ThemesKeyBackgroundActivity.this).get(position).isBlock()){
+        if (AppConstants.getTheme(ThemesKeyActivity.this).get(position).isBlock()){
 
 
         if (preference.getValueCoin() >= 2) {
             preference.setValueCoin(preference.getValueCoin() - 2);
             Set<String> keyList = preference.getListKeyBy();
-            keyList.add(AppConstants.getTheme(ThemesKeyBackgroundActivity.this).get(position).getTheme()+"");
+            keyList.add(AppConstants.getTheme(ThemesKeyActivity.this).get(position).getTheme()+"");
             preference.setListKeyBy(keyList);
 
             applicationPrefs.setCustomeThemesKeyBackground(AppConstants.KEY_BACKGROUND_LIST[position]);
@@ -90,8 +89,8 @@ public class ThemesKeyBackgroundActivity extends Activity implements OnItemClick
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            Intent intent = new Intent(ThemesKeyBackgroundActivity.this, PurchaseInAppActivity.class);
-							ThemesKeyBackgroundActivity.this.startActivity(intent);
+                            Intent intent = new Intent(ThemesKeyActivity.this, PurchaseInAppActivity.class);
+							ThemesKeyActivity.this.startActivity(intent);
                         }
                     });
             alertDialog.setNegativeButton("Cancel", null);

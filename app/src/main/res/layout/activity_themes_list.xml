@@ -7,11 +7,11 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.Toolbar
+    <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="KeyBoard Themes"
+        app:title="Keyboard Themes"
         app:navigationIcon="@drawable/arrow_left"
         app:titleTextColor="@color/white">
         <TextView
@@ -26,7 +26,7 @@
             android:layout_marginEnd="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-    </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.MaterialToolbar>
 
     <GridView
         android:id="@+id/listView_themes_list"

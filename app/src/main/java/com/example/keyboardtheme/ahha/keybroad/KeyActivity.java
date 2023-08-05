@@ -1,4 +1,4 @@
-package com.example.keyboardtheme.gt.keybord;
+package com.example.keyboardtheme.ahha.keybroad;
 
 import android.Manifest;
 import android.content.ActivityNotFoundException;
@@ -24,8 +24,8 @@ import androidx.core.content.ContextCompat;
 
 import com.example.keyboardtheme.Preference;
 import com.example.keyboardtheme.R;
-import com.example.keyboardtheme.gt.module.base.ActivityBase;
-import com.example.keyboardtheme.gt.module.constants.ApplicationPrefs;
+import com.example.keyboardtheme.ahha.module1122.base.ActivityBase;
+import com.example.keyboardtheme.ahha.module1122.constants.ApplicationPrefs;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -33,7 +33,7 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class KeyBoardActivity extends ActivityBase implements OnClickListener {
+public class KeyActivity extends ActivityBase implements OnClickListener {
 
     String[] appPermission = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
     private static final int PERMISSION_REQUEST_CODE = 12;
@@ -157,7 +157,7 @@ public class KeyBoardActivity extends ActivityBase implements OnClickListener {
     private void initApp() {
         applicationPrefs = ApplicationPrefs.getInstance(this);
         if (which == 0) {
-            Intent intent2 = new Intent(getApplicationContext(), ThemesListActivity.class);
+            Intent intent2 = new Intent(getApplicationContext(), ThemeListActivity.class);
             startActivity(intent2);
         } else if (which == 1) {
             Intent intent = new Intent(getApplicationContext(), CustomeThemesActivity.class);
@@ -168,7 +168,7 @@ public class KeyBoardActivity extends ActivityBase implements OnClickListener {
 
     private void showInterstitial() {
         if (which == 0) {
-            Intent intent2 = new Intent(getApplicationContext(), ThemesListActivity.class);
+            Intent intent2 = new Intent(getApplicationContext(), ThemeListActivity.class);
             startActivity(intent2);
         } else if (which == 1) {
             Intent intent = new Intent(getApplicationContext(), CustomeThemesActivity.class);

@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.preference.PreferenceActivity;
 
 import com.example.keyboardtheme.R;
-import com.example.keyboardtheme.inputmethodcommon.InputMethodSettingsFragment;
+import com.example.keyboardtheme.inputmethodcommon.InputSettingsFragment;
 
 
 /**
@@ -34,7 +34,7 @@ public class ImePreferences extends PreferenceActivity {
         return Settings.class.getName().equals(fragmentName);
     }
 
-    public static class Settings extends InputMethodSettingsFragment {
+    public static class Settings extends InputSettingsFragment {
         @SuppressLint("NewApi")
 		@Override
         public void onCreate(Bundle savedInstanceState) {

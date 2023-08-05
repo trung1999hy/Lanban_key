@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.keyboardtheme.softkeyboard.LatinKeyboardView         xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.keyboardtheme.softkeyboard.KeyboardView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/keyboard"
         android:layout_alignParentBottom="true"       
         android:keyBackground="@drawable/themes20_key" 

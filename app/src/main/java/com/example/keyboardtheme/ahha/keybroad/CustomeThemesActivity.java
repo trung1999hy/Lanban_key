@@ -1,4 +1,4 @@
-package com.example.keyboardtheme.gt.keybord;
+package com.example.keyboardtheme.ahha.keybroad;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -15,7 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.keyboardtheme.R;
-import com.example.keyboardtheme.gt.module.base.ActivityBase;
+import com.example.keyboardtheme.ahha.module1122.base.ActivityBase;
+import com.google.android.material.appbar.MaterialToolbar;
 
 
 import java.io.File;
@@ -34,6 +35,12 @@ public class CustomeThemesActivity extends ActivityBase implements OnClickListen
         setContentView(R.layout.activity_custome_themes);
 
         initUI();
+        ((MaterialToolbar) findViewById(R.id.toolbar)).setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
 
@@ -56,7 +63,7 @@ public class CustomeThemesActivity extends ActivityBase implements OnClickListen
     public void onClick(View v) {
 
         if (v.getId() == R.id.l_lay_customethemes_background)
-            startActivityForResult(new Intent(getApplicationContext(), ThemesBackgroundActivity.class), 1);
+            startActivityForResult(new Intent(getApplicationContext(), ThemesActivity.class), 1);
 	/*	case R.id.l_lay_customethemes_keybackground:
 			startActivityForResult(new Intent(getApplicationContext(), ThemesKeyBackgroundActivity.class), 2);
 			break;*/

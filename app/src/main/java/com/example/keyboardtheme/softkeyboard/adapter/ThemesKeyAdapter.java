@@ -12,12 +12,12 @@ import androidx.appcompat.widget.LinearLayoutCompat;
 
 import com.example.keyboardtheme.R;
 import com.example.keyboardtheme.Theme;
-import com.example.keyboardtheme.gt.module.constants.AppConstants;
+import com.example.keyboardtheme.ahha.module1122.constants.AppConstants;
 
 import java.util.ArrayList;
 
 
-public class ThemesKeyBackgroundAdapter extends BaseAdapter{
+public class ThemesKeyAdapter extends BaseAdapter{
 	
 	
 	Context context;
@@ -25,7 +25,7 @@ public class ThemesKeyBackgroundAdapter extends BaseAdapter{
 
 	public ArrayList<Theme> listPositionBlock;
 
-	public ThemesKeyBackgroundAdapter(Context context) {
+	public ThemesKeyAdapter(Context context) {
 		// TODO Auto-generated constructor stub
 	this.context = context;
 		listPositionBlock = AppConstants.getTheme(context);

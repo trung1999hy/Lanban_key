@@ -27,13 +27,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".gt.keybord.KeyBoardActivity"
+            android:name=".ahha.keybroad.KeyActivity"
             android:exported="true">
         </activity>
-        <activity android:name=".gt.keybord.ThemesListActivity" />
-        <activity android:name=".gt.keybord.Crope" />
-        <activity android:name=".gt.keybord.ThemesBackgroundActivity" />
-        <activity android:name=".gt.keybord.CustomeThemesActivity" />
+        <activity android:name=".ahha.keybroad.ThemeListActivity" />
+        <activity android:name=".ahha.keybroad.Crope" />
+        <activity android:name=".ahha.keybroad.ThemesActivity" />
+        <activity android:name=".ahha.keybroad.CustomeThemesActivity" />
 
         <service
             android:name=".softkeyboard.SoftKeyboard"
