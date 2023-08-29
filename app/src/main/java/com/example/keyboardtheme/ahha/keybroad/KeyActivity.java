@@ -1,6 +1,7 @@
 package com.example.keyboardtheme.ahha.keybroad;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -19,6 +20,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -36,12 +38,14 @@ import java.util.List;
 public class KeyActivity extends ActivityBase implements OnClickListener {
 
     String[] appPermission = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
+    String[] appPermission_ = {Manifest.permission.READ_MEDIA_IMAGES, Manifest.permission.READ_MEDIA_VIDEO};
     private static final int PERMISSION_REQUEST_CODE = 12;
 
     ApplicationPrefs applicationPrefs;
     private static final int PICK_FROM_GEALLERY = 1;
     LinearLayout l_lay_keyboard_enableKeyboard, l_lay_keyboard_SetInputMethod, l_lay_keyboard_setThemes, l_lay_keyboard_setThemesBackground;
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
@@ -49,27 +53,31 @@ public class KeyActivity extends ActivityBase implements OnClickListener {
         setContentView(R.layout.activity_keyboard);
         Preference.buildInstance(this);
         Preference.buildInstance(this).isOpenFirst();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (checkAndRequestPermission()) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (checkAndRequestPermission(Build.VERSION_CODES.TIRAMISU, appPermission_)) {
                 initApp();
             }
         } else {
             initApp();
         }
 
+        if(checkAndRequestPermission(Build.VERSION_CODES.M, appPermission)) {
+            initApp();
+        }
     }
 
-    private boolean checkAndRequestPermission() {
+    @SuppressLint("NewApi")
+    private boolean checkAndRequestPermission(int version, String[] arr) {
         List<String> listPermissionNeeded = new ArrayList<>();
-        for (String perm : appPermission) {
+        for (String perm : arr) {
             if (ContextCompat.checkSelfPermission(this, perm) != PackageManager.PERMISSION_GRANTED) {
                 listPermissionNeeded.add(perm);
             }
         }
 
         if (!listPermissionNeeded.isEmpty()) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                requestPermissions( appPermission, PERMISSION_REQUEST_CODE);
+            if (Build.VERSION.SDK_INT >= version) {
+                requestPermissions(arr, PERMISSION_REQUEST_CODE);
             }
             return false;
         }
